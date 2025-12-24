@@ -32,7 +32,7 @@ const Header = () => {
             className="font-heading text-2xl font-semibold tracking-tight gold-gradient-text"
             data-testid="logo-link"
           >
-            LUMIÈRE
+            Furniture
           </Link>
 
           {/* Desktop Navigation */}
