@@ -4,8 +4,9 @@ import axios from 'axios';
 import { ArrowRight, Truck, Shield, Headphones } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
 import CategoryCard from '@/components/CategoryCard';
+import { DUMMY_PRODUCTS, CATEGORIES } from '@/data/products';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 const Home = () => {
@@ -23,7 +24,10 @@ const Home = () => {
         setFeaturedProducts(productsRes.data);
         setCategories(categoriesRes.data);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching home data:', error);
+        // Fallback to dummy data
+        setFeaturedProducts(DUMMY_PRODUCTS.filter(p => p.featured));
+        setCategories(CATEGORIES);
       } finally {
         setLoading(false);
       }

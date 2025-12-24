@@ -5,8 +5,9 @@ import { ArrowLeft, Minus, Plus, Truck, Shield, RotateCcw } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
+import { DUMMY_PRODUCTS } from '@/data/products';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 const ProductDetail = () => {
@@ -30,6 +31,11 @@ const ProductDetail = () => {
         setRelatedProducts(relatedRes.data.filter(p => p.id !== id).slice(0, 4));
       } catch (error) {
         console.error('Error fetching product:', error);
+        // Fallback to dummy data
+        const found = DUMMY_PRODUCTS.find(p => p.id === parseInt(id));
+        if (found) {
+          setProduct(found);
+        }
       } finally {
         setLoading(false);
       }

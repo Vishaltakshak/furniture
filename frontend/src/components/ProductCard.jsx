@@ -41,6 +41,9 @@ const ProductCard = ({ product, featured = false }) => {
           alt={product.name}
           className="w-full h-full object-cover"
           loading="lazy"
+          onError={(e) => {
+            e.target.src = 'https://placehold.co/600x400?text=No+Image';
+          }}
         />
         {/* Overlay on hover */}
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500" />

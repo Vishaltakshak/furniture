@@ -13,8 +13,9 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
+import { DUMMY_PRODUCTS, CATEGORIES } from '@/data/products';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 const Products = () => {
@@ -39,6 +40,7 @@ const Products = () => {
         setCategories(res.data);
       } catch (error) {
         console.error('Error fetching categories:', error);
+        setCategories(CATEGORIES);
       }
     };
     fetchCategories();
@@ -89,12 +91,29 @@ const Products = () => {
         setProducts(sortedProducts);
       } catch (error) {
         console.error('Error fetching products:', error);
+        // Fallback to dummy data
+        let filtered = [...DUMMY_PRODUCTS];
+        if (selectedCategory && selectedCategory !== 'all') {
+          filtered = filtered.filter(p => p.category === selectedCategory);
+        }
+        if (searchQuery) {
+          filtered = filtered.filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()));
+        }
+        if (sortBy === 'price-low') {
+          filtered.sort((a, b) => a.price - b.price);
+        } else if (sortBy === 'price-high') {
+          filtered.sort((a, b) => b.price - a.price);
+        } else if (sortBy === 'name') {
+          filtered.sort((a, b) => a.name.localeCompare(b.name));
+        }
+        setProducts(filtered);
       } finally {
         setLoading(false);
       }
     };
     fetchProducts();
   }, [selectedCategory, searchQuery, priceRange, sortBy]);
+
 
   const formatPrice = (price) => {
     return new Intl.NumberFormat('en-IN', {
