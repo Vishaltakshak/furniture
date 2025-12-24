@@ -1,0 +1,169 @@
+{
+  "design_system": {
+    "identity": {
+      "name": "LUMIÈRE",
+      "archetype": "Jewel & Luxury",
+      "emotional_tone": "Sophisticated, Timeless, Intimate, Expensive",
+      "description": "A digital boutique for high-end furniture. Dark, moody atmospheres pierced by gold accents. The interface feels like a VIP showroom—quiet, spacious, and confident."
+    },
+    "typography": {
+      "headings": {
+        "family": "Playfair Display, serif",
+        "weights": ["400", "600", "700"],
+        "usage": "All section titles, hero text, and product names. Use 'tracking-tight' for large sizes.",
+        "import_url": "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      },
+      "body": {
+        "family": "Manrope, sans-serif",
+        "weights": ["300", "400", "500"],
+        "usage": "Descriptions, prices, UI elements, navigation. Clean and legible at small sizes.",
+        "import_url": "https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap"
+      }
+    },
+    "colors": {
+      "palette": {
+        "background": "#050505",
+        "foreground": "#FAFAFA",
+        "card": "#0F0F10",
+        "card_foreground": "#FAFAFA",
+        "popover": "#0F0F10",
+        "popover_foreground": "#FAFAFA",
+        "primary": "#D4AF37",
+        "primary_foreground": "#000000",
+        "secondary": "#1A1A1A",
+        "secondary_foreground": "#FAFAFA",
+        "muted": "#262626",
+        "muted_foreground": "#A3A3A3",
+        "accent": "#E5C17C",
+        "accent_foreground": "#000000",
+        "destructive": "#7F1D1D",
+        "destructive_foreground": "#FAFAFA",
+        "border": "#262626",
+        "input": "#262626",
+        "ring": "#D4AF37"
+      },
+      "gradients": {
+        "gold_rush": "linear-gradient(135deg, #D4AF37 0%, #E5C17C 50%, #B4941F 100%)",
+        "dark_void": "linear-gradient(to bottom, #050505 0%, #0F0F10 100%)"
+      }
+    },
+    "visual_enhancers": {
+      "borders": "1px solid rgba(212, 175, 55, 0.15)",
+      "shadows": {
+        "glow": "0 0 20px rgba(212, 175, 55, 0.1)",
+        "card": "0 10px 30px -10px rgba(0, 0, 0, 0.5)"
+      },
+      "radius": {
+        "default": "0px",
+        "button": "2px",
+        "card": "0px"
+      },
+      "textures": "Use a subtle noise overlay (opacity 0.03) on the background to prevent banding and add 'film grain' feel."
+    },
+    "layout_strategies": {
+      "grid_system": "The Tetris Grid",
+      "spacing": "Generous. Use p-12 to p-24 for section padding. Gap-8 for grids.",
+      "container": "max-w-7xl mx-auto px-6",
+      "z_index": {
+        "nav": 50,
+        "modal": 100,
+        "toast": 110
+      }
+    },
+    "components": {
+      "buttons": {
+        "primary": "bg-primary text-primary-foreground hover:bg-accent uppercase tracking-widest text-xs font-bold px-8 py-4 rounded-none transition-all duration-300",
+        "secondary": "bg-transparent border border-primary/30 text-primary hover:border-primary hover:bg-primary/5 uppercase tracking-widest text-xs font-bold px-8 py-4 rounded-none"
+      },
+      "cards": {
+        "product": "group relative bg-card border border-border/50 hover:border-primary/50 transition-colors duration-500 overflow-hidden",
+        "feature": "bg-transparent border-l border-primary/20 pl-6 py-2"
+      },
+      "inputs": {
+        "default": "bg-secondary/50 border-border focus:border-primary rounded-none h-12"
+      }
+    },
+    "motion": {
+      "library": "framer-motion",
+      "transitions": {
+        "default": "ease: [0.22, 1, 0.36, 1], duration: 0.8",
+        "hover": "duration: 0.3, ease: 'easeOut'"
+      },
+      "scroll": "Use 'lenis' for smooth scrolling momentum."
+    },
+    "media": {
+      "image_urls": {
+        "hero": {
+          "url": "https://images.unsplash.com/photo-1640357897497-599b4fc84f51?crop=entropy&cs=srgb&fm=jpg&q=85",
+          "alt": "Dark luxury living room with velvet sofa",
+          "category": "hero"
+        },
+        "living_room": [
+          {
+            "url": "https://images.unsplash.com/photo-1653668984101-29088a7b5476?crop=entropy&cs=srgb&fm=jpg&q=85",
+            "alt": "Modern dark living room setup",
+            "category": "category_card"
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1599696848652-f0ff23bc911f?crop=entropy&cs=srgb&fm=jpg&q=85",
+            "alt": "Brown velvet couch detail",
+            "category": "product"
+          }
+        ],
+        "bedroom": [
+          {
+            "url": "https://images.unsplash.com/photo-1702865071772-16f67bbf594e?crop=entropy&cs=srgb&fm=jpg&q=85",
+            "alt": "Dark bedroom with nightstand",
+            "category": "category_card"
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1578564856342-319e84b464ec?crop=entropy&cs=srgb&fm=jpg&q=85",
+            "alt": "Orange suede bed detail",
+            "category": "product"
+          }
+        ],
+        "office": [
+          {
+            "url": "https://images.unsplash.com/photo-1704655295066-681e61ecca6b?crop=entropy&cs=srgb&fm=jpg&q=85",
+            "alt": "Executive desk with flowers",
+            "category": "category_card"
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1619080270642-6af8d090b7d6?crop=entropy&cs=srgb&fm=jpg&q=85",
+            "alt": "Macbook on wooden table",
+            "category": "product"
+          }
+        ],
+        "dining": [
+          {
+            "url": "https://images.unsplash.com/photo-1649747823135-3450d7b8fa41?crop=entropy&cs=srgb&fm=jpg&q=85",
+            "alt": "Dining table with black plates",
+            "category": "category_card"
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1606659894125-40824878b6ce?crop=entropy&cs=srgb&fm=jpg&q=85",
+            "alt": "Candlelit dining table",
+            "category": "product"
+          }
+        ]
+      }
+    },
+    "instructions_to_main_agent": [
+      "1. SETUP: Install 'lenis' for smooth scrolling and 'framer-motion' for animations.",
+      "2. THEME: Update 'tailwind.config.js' and 'index.css' immediately with the provided color palette. Force DARK MODE by default.",
+      "3. FONTS: Add the Google Fonts imports to 'index.css' or 'index.html'.",
+      "4. LAYOUT: Do not use standard Bootstrap-style grids. Use the 'Tetris Grid' for the product showcase (mix of col-span-1, col-span-2, row-span-2).",
+      "5. COMPONENTS: Customize Shadcn components to remove rounded corners (set radius to 0 or 2px) and use the Gold/Black palette.",
+      "6. IMAGES: Use the provided Unsplash URLs. Do not use placeholders.",
+      "7. NAVIGATION: Create a sticky, glassmorphism header (bg-black/80 backdrop-blur-md) with a gold bottom border (1px, opacity 0.2).",
+      "8. CHECKOUT: Ensure the checkout form is elegant—minimal inputs, clear typography, gold submit button.",
+      "9. TESTING: Add 'data-testid' to all interactive elements (e.g., 'add-to-cart-btn', 'checkout-submit')."
+    ],
+    "universal_guidelines": [
+      "Avoid 'AI Slop': No generic gradients, no centered text blocks without purpose.",
+      "Contrast: Ensure text is readable on dark backgrounds (use #FAFAFA or #EDEDED, never pure white #FFFFFF).",
+      "Spacing: When in doubt, double the padding.",
+      "Micro-interactions: Buttons should scale slightly (0.98) on click. Links should have a gold underline animation on hover."
+    ]
+  }
+}
