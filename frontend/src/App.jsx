@@ -9,6 +9,7 @@ import Products from "@/pages/Products";
 import ProductDetail from "@/pages/ProductDetail";
 import Cart from "@/pages/Cart";
 import Checkout from "@/pages/Checkout";
+import Payment from "@/pages/Payment";
 import OrderConfirmation from "@/pages/OrderConfirmation";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
               <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/payment" element={<Payment />} />
               <Route path="/order-confirmation/:orderId" element={<OrderConfirmation />} />
             </Routes>
           </main>

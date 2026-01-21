@@ -77,36 +77,13 @@ const Checkout = () => {
       return;
     }
 
-    setLoading(true);
-
-    try {
-      // Create order
-      const orderResponse = await axios.post(`${API}/orders`, {
-        customer: formData,
-        cart_id: cartId
-      });
-
-      const orderId = orderResponse.data.id;
-
-      // Note: Razorpay integration is ready but disabled
-      // When enabled, this would initiate payment:
-      // const paymentResponse = await axios.post(`${API}/payment/create-order`, {
-      //   amount: Math.round(total * 100), // Convert to paise
-      //   currency: 'INR',
-      //   order_id: orderId
-      // });
-
-      // Clear cart and navigate to confirmation
-      clearCart();
-      toast.success('Order placed successfully!');
-      navigate(`/order-confirmation/${orderId}`);
-
-    } catch (error) {
-      console.error('Order error:', error);
-      toast.error('Failed to place order. Please try again.');
-    } finally {
-      setLoading(false);
-    }
+    // Navigate to payment page with form data
+    navigate('/payment', { 
+      state: { 
+        formData: formData, 
+        cartId: cartId 
+      } 
+    });
   };
 
   const shipping = cart.total >= 50000 ? 0 : 5000;
@@ -336,7 +313,7 @@ const Checkout = () => {
                   className="w-full bg-primary text-primary-foreground h-14 text-xs font-semibold tracking-widest uppercase hover:bg-accent rounded-none btn-press disabled:opacity-50"
                   data-testid="place-order-btn"
                 >
-                  {loading ? 'Processing...' : 'Place Order'}
+                  {loading ? 'Processing...' : 'Proceed to Payment'}
                 </Button>
 
                 <div className="flex items-center justify-center gap-2 text-muted-foreground text-xs mt-4">
